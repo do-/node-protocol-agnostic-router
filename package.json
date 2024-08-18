@@ -1,0 +1,54 @@
+{
+  "name": "protocol-agnostic-router",
+  "version": "1.0.0",
+  "description": "Subclassable protocol agnostic router, HTTP as proof of concept",
+  "main": "index.js",
+  "files": [
+    "/lib",
+    "/badges"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test-ci": "jest --ci --coverage"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ],
+    "coverageReporters": [
+      "clover",
+      "json",
+      "lcov",
+      "text",
+      "json-summary"
+    ],
+    "verbose": false,
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/__tests__/data",
+      "/__tests__/lib"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/do-/node-protocol-agnostic-router.git"
+  },
+  "keywords": [
+    "router"
+  ],
+  "author": "Dmitry Ovsyanko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/do-/node-protocol-agnostic-router/issues"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
+  },
+  "peerDependencies": {
+    "winston": "^3.13.1"
+  },
+  "dependencies": {
+    "events-to-winston": "^1.0.3"
+  },
+  "homepage": "https://github.com/do-/node-protocol-agnostic-router#readme"
+}
