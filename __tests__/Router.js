@@ -16,7 +16,7 @@ class BotchedProcessor extends EventEmitter {
 		super ()
 	}
 
-	process () {
+	[Router.PROCESS_MESSAGE] () {
 		this.emit ('error', new Error ('OK'))
 	}
 
@@ -28,7 +28,7 @@ class BrokenProcessor extends EventEmitter {
 		super ()
 	}
 
-	process () {
+	[Router.PROCESS_MESSAGE] () {
 		throw Error ('OK')
 	}
 
@@ -51,8 +51,8 @@ test ('Router A', () => {
 
 	const r = new Router ({name: 'Roo', logger})
 	
-	r.add ({process: m => m.label = '??', test: () => false})
-	r.add ({process: m => m.label = '???'})
+	r.add ({[Router.PROCESS_MESSAGE]: m => m.label = '??', [Router.TEST_MESSAGE]: () => false})
+	r.add ({[Router.PROCESS_MESSAGE]: m => m.label = '???'})
 	
 	let m = {id: 1}
 	
