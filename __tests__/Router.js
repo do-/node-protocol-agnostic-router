@@ -89,6 +89,8 @@ test ('Router error', () => {
 	r.add ({})
 	r.listen ()
 
+	r.close ()
+
 })
 
 
