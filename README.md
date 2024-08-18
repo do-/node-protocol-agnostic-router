@@ -1,4 +1,4 @@
-![workflow](https://github.com/do-/node-protocol-agnostic-router/actions/workflows/main.yaml/badge.svg)
+![workflow](https://github.com/do-/node-protocol-agnostic-router/actions/workflows/main.yml/badge.svg)
 ![Jest coverage](./badges/coverage-jest%20coverage.svg)
 
 This module features [`Router`](https://github.com/do-/node-protocol-agnostic-router/wiki/Router): an abstract synchronous message processor designed to be  a boilerplate for custom middleware frameworks.
