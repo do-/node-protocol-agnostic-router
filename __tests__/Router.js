@@ -46,6 +46,22 @@ test ('Router 1', () => {
 
 })
 
+test ('Not found', () => {
+
+	const r = new Router ({name: 'Roo', logger})
+		
+	const m = {id: 1}, a = []
+
+	r.on ('error', e => a.push (e))
+	
+	r.process (m)	
+
+	expect (a).toHaveLength (1)
+	expect (a [0].message).toMatch (/^No destination/)
+
+})
+
+
 
 test ('Router A', () => {
 
@@ -61,7 +77,6 @@ test ('Router A', () => {
 	expect (m).toStrictEqual ({id: 1, label: '???'})
 
 })
-
 
 test ('Router error', () => {
 
