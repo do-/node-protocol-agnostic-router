@@ -27,33 +27,15 @@ module.exports = {
 
 		try {
 
-			const __ = {}
-
-			var r = new HttpRouter ({name: 'httpEndPoint', listen, logger})
+			var router = new HttpRouter ({name: 'httpEndPoint', listen, logger})
 			
-			for (const s of Array.isArray (service) ? service : [service]) r.add (s)
+			for (const s of Array.isArray (service) ? service : [service]) router.add (s)
 
-			r.listen ()
+			router.listen ()
 
-			const [_, rp] = await Promise.all ([
+			const rp = (await Promise.all ([
 
-				new Promise ((ok, fail) => {
-
-					r.on ('data', ctx => {
-
-						__.method = ctx.request.method
-						__.searchParams = ctx.searchParams
-
-						if (ctx.request.method === 'POST') {
-							ctx.getBodyAsString ().then (body => ok (__.body = body), fail)
-						}
-						else {
-							ok ()
-						}
-
-					})
-
-				}),				
+				new Promise (ok => router.on ('data', ok)),				
 
 				new Promise (ok => {
 
@@ -63,13 +45,11 @@ module.exports = {
 	
 				})
 	
-			])			
+			])).pop ()	
 
 			const a = []; for await (b of rp) a.push (b)
 
 			rp.responseText = Buffer.concat (a).toString ()
-
-			rp.__ = __
 
 			return rp
 
@@ -81,7 +61,7 @@ module.exports = {
 		}
 		finally {
 
-			r.close ()
+			router.close ()
 
 		}
 

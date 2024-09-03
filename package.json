@@ -1,6 +1,6 @@
 {
   "name": "protocol-agnostic-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Subclassable protocol agnostic router, HTTP as proof of concept",
   "main": "index.js",
   "files": [
@@ -42,10 +42,10 @@
     "url": "https://github.com/do-/node-protocol-agnostic-router/issues"
   },
   "devDependencies": {
-    "jest": "^29.3.1"
+    "jest": "^29.3.1",
+    "http-server-tools": "^1.0.1"
   },
   "peerDependencies": {
-    "mime-db": "^1.52.0",
     "winston": "^3.13.1"
   },
   "dependencies": {
