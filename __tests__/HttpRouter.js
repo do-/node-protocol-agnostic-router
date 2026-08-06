@@ -28,4 +28,6 @@ test ('listen', async () => {
 
 	expect (f).toBe (false)
 
+	await expect (() => r.close ()).rejects.toBeDefined ()
+
 })

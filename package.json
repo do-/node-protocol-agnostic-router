@@ -1,6 +1,6 @@
 {
   "name": "protocol-agnostic-router",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Subclassable protocol agnostic router, HTTP as proof of concept",
   "main": "index.js",
   "files": [
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "jest": "^29.3.1",
-    "http-server-tools": "^1.0.7"
+    "http-server-tools": "^1.0.8"
   },
   "peerDependencies": {
     "winston": "^3.17.0"
