@@ -1,6 +1,6 @@
 {
   "name": "protocol-agnostic-router",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Subclassable protocol agnostic router, HTTP as proof of concept",
   "main": "index.js",
   "files": [
